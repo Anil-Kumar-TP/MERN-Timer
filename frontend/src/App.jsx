@@ -10,7 +10,6 @@ const App = () => {
   };
 
   const handleExpireTimer = (index) => {
-    // Remove the timer at the specified index
     setTimers(timers.filter((_, i) => i !== index));
   };
 

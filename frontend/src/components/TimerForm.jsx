@@ -1,4 +1,3 @@
-// TimerForm.js
 import React, { useState } from 'react';
 
 const TimerForm = ({ onAddTimer }) => {
@@ -7,9 +6,11 @@ const TimerForm = ({ onAddTimer }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Convert endTime to a Date object and call onAddTimer
+        if (new Date(endTime) <= new Date()) {
+            alert("Please select a future date and time.");
+            return;
+        }
         onAddTimer({ title, endTime: new Date(endTime) });
-        // Reset the form fields
         setTitle('');
         setEndTime('');
     };
